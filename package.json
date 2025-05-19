@@ -2,30 +2,34 @@
   "name": "crud-nodejs",
   "version": "1.0.0",
   "description": "App para aplicação dos estudos de nodeJs, express e typescript",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/Server/app.ts",
-    "dev": "nodemon src/Server/app.ts",
-    "build": "tsc --project tsconfig.json"
+    "start": "tsx src/index.ts",
+    "start-dev": "tsx --watch src/index.ts",
+    "build": "rimraf dist && tsup src/index.ts --format cjs,esm --dts --minify"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["express", "typescript", "postgres", "drizzle", "api"],
+  "author": "Carlos Felipe Maradeia",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
     "express": "^5.1.0",
     "pg": "^8.16.0",
-    "sequelize": "^6.37.7"
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.18",
     "@types/pg": "^8.15.2",
-    "@types/sequelize": "^4.28.20",
+    "drizzle-kit": "^0.31.1",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   }
 }
